@@ -37,6 +37,59 @@
 		1F0EBAAE2B5B465500F27980 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91F1EC3922F0007AD59 /* libuv.a */; };
 		1F0EBAB02B5B465500F27980 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C9201EC3922F0007AD59 /* libzlib.a */; };
 		1F0EBAB22B5B465500F27980 /* NodeMobile.h in Headers */ = {isa = PBXBuildFile; fileRef = D9A762261F7C674F006097B1 /* NodeMobile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FC6E94E2B61B8E40019400F /* NodeMobile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C02AFD31FA919C30053C191 /* NodeMobile.cpp */; };
+		1FC6E9502B61B8E40019400F /* libuvwasi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB0240437620019E302 /* libuvwasi.a */; };
+		1FC6E9512B61B8E40019400F /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C9201EC3922F0007AD59 /* libzlib.a */; };
+		1FC6E9522B61B8E40019400F /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91E1EC3922F0007AD59 /* libopenssl.a */; };
+		1FC6E9532B61B8E40019400F /* libv8_base_without_compiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB3240437620019E302 /* libv8_base_without_compiler.a */; };
+		1FC6E9542B61B8E40019400F /* libv8_libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB1240437620019E302 /* libv8_libbase.a */; };
+		1FC6E9552B61B8E40019400F /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C9191EC3922F0007AD59 /* libcares.a */; };
+		1FC6E9562B61B8E40019400F /* libllhttp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAC240437620019E302 /* libllhttp.a */; };
+		1FC6E9572B61B8E40019400F /* libhistogram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAB240437620019E302 /* libhistogram.a */; };
+		1FC6E9582B61B8E40019400F /* libada.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE02ACD491900070ED3 /* libada.a */; };
+		1FC6E9592B61B8E40019400F /* libbrotli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAF240437620019E302 /* libbrotli.a */; };
+		1FC6E95A2B61B8E40019400F /* libnode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91D1EC3922F0007AD59 /* libnode.a */; };
+		1FC6E95B2B61B8E40019400F /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91F1EC3922F0007AD59 /* libuv.a */; };
+		1FC6E95C2B61B8E40019400F /* libv8_snapshot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EC1240437AB0019E302 /* libv8_snapshot.a */; };
+		1FC6E95E2B61B8E40019400F /* libv8_libplatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAE240437620019E302 /* libv8_libplatform.a */; };
+		1FC6E95F2B61B8E40019400F /* libnghttp3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7A29756D920049F595 /* libnghttp3.a */; };
+		1FC6E9602B61B8E40019400F /* libnghttp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 334822141F6AFBD200CF403E /* libnghttp2.a */; };
+		1FC6E9612B61B8E40019400F /* libv8_initializers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAD240437620019E302 /* libv8_initializers.a */; };
+		1FC6E9622B61B8E40019400F /* libbase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE42ACD493400070ED3 /* libbase64.a */; };
+		1FC6E9632B61B8E40019400F /* libv8_zlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7E29756DCD0049F595 /* libv8_zlib.a */; };
+		1FC6E9652B61B8E40019400F /* libngtcp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7C29756DAA0049F595 /* libngtcp2.a */; };
+		1FC6E9662B61B8E40019400F /* libsimdutf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE62ACD493C00070ED3 /* libsimdutf.a */; };
+		1FC6E9672B61B8E40019400F /* libv8_compiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EC0240437AB0019E302 /* libv8_compiler.a */; };
+		1FC6E96D2B61B91B0019400F /* libbase64_avx2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D008C12AD14FAD00FB3D3D /* libbase64_avx2.a */; };
+		1FC6E96E2B61B91B0019400F /* libbase64_ssse3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D008BF2AD14FAD00FB3D3D /* libbase64_ssse3.a */; };
+		1FC6E96F2B61B91B0019400F /* libbase64_avx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D008BE2AD14FAD00FB3D3D /* libbase64_avx.a */; };
+		1FC6E9702B61B91B0019400F /* libbase64_sse41.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D008BD2AD14FAD00FB3D3D /* libbase64_sse41.a */; };
+		1FC6E9712B61B91B0019400F /* libbase64_sse42.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D008C02AD14FAD00FB3D3D /* libbase64_sse42.a */; };
+		1FCA33BF2B61A07E008D453C /* NodeMobile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C02AFD31FA919C30053C191 /* NodeMobile.cpp */; };
+		1FCA33C02B61A0A1008D453C /* libsimdutf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE62ACD493C00070ED3 /* libsimdutf.a */; };
+		1FCA33C12B61A0A1008D453C /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91F1EC3922F0007AD59 /* libuv.a */; };
+		1FCA33C22B61A0A1008D453C /* libzlib_inflate_chunk_simd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE82ACD494B00070ED3 /* libzlib_inflate_chunk_simd.a */; };
+		1FCA33C32B61A0A1008D453C /* libada.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE02ACD491900070ED3 /* libada.a */; };
+		1FCA33C42B61A0A1008D453C /* libbrotli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAF240437620019E302 /* libbrotli.a */; };
+		1FCA33C52B61A0A1008D453C /* libv8_zlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7E29756DCD0049F595 /* libv8_zlib.a */; };
+		1FCA33C62B61A0A1008D453C /* libngtcp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7C29756DAA0049F595 /* libngtcp2.a */; };
+		1FCA33C72B61A0A1008D453C /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C9201EC3922F0007AD59 /* libzlib.a */; };
+		1FCA33C82B61A0A1008D453C /* libv8_base_without_compiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB3240437620019E302 /* libv8_base_without_compiler.a */; };
+		1FCA33C92B61A0A1008D453C /* libv8_snapshot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EC1240437AB0019E302 /* libv8_snapshot.a */; };
+		1FCA33CA2B61A0A1008D453C /* libbase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE42ACD493400070ED3 /* libbase64.a */; };
+		1FCA33CB2B61A0A1008D453C /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C9191EC3922F0007AD59 /* libcares.a */; };
+		1FCA33CC2B61A0A1008D453C /* libv8_compiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EC0240437AB0019E302 /* libv8_compiler.a */; };
+		1FCA33CD2B61A0A1008D453C /* libv8_libplatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAE240437620019E302 /* libv8_libplatform.a */; };
+		1FCA33CE2B61A0A1008D453C /* libnghttp3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F63BCE7A29756D920049F595 /* libnghttp3.a */; };
+		1FCA33CF2B61A0A1008D453C /* libnode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91D1EC3922F0007AD59 /* libnode.a */; };
+		1FCA33D02B61A0A1008D453C /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3376C91E1EC3922F0007AD59 /* libopenssl.a */; };
+		1FCA33D12B61A0A1008D453C /* libuvwasi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB0240437620019E302 /* libuvwasi.a */; };
+		1FCA33D22B61A0A1008D453C /* libbase64_neon64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE22ACD492E00070ED3 /* libbase64_neon64.a */; };
+		1FCA33D32B61A0A1008D453C /* libllhttp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAC240437620019E302 /* libllhttp.a */; };
+		1FCA33D42B61A0A1008D453C /* libhistogram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAB240437620019E302 /* libhistogram.a */; };
+		1FCA33D52B61A0A1008D453C /* libnghttp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 334822141F6AFBD200CF403E /* libnghttp2.a */; };
+		1FCA33D62B61A0A1008D453C /* libv8_initializers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAD240437620019E302 /* libv8_initializers.a */; };
+		1FCA33D72B61A0A1008D453C /* libv8_libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EB1240437620019E302 /* libv8_libbase.a */; };
 		33300EB6240437620019E302 /* libhistogram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAB240437620019E302 /* libhistogram.a */; };
 		33300EB7240437620019E302 /* libllhttp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAC240437620019E302 /* libllhttp.a */; };
 		33300EB8240437620019E302 /* libv8_initializers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33300EAD240437620019E302 /* libv8_initializers.a */; };
@@ -66,8 +119,31 @@
 		F6860EE92ACD494B00070ED3 /* libzlib_inflate_chunk_simd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6860EE82ACD494B00070ED3 /* libzlib_inflate_chunk_simd.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1FC6E9682B61B8E40019400F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FCA33B42B61A038008D453C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F0EBAB72B5B465500F27980 /* NodeMobile-x64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "NodeMobile-x64.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FC6E96C2B61B8E40019400F /* libNodeMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNodeMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCA33B62B61A038008D453C /* libNodeMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNodeMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		331917C21EC4702A00F93D52 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		33300EAB240437620019E302 /* libhistogram.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhistogram.a; path = bin/libhistogram.a; sourceTree = "<group>"; };
 		33300EAC240437620019E302 /* libllhttp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libllhttp.a; path = bin/libllhttp.a; sourceTree = "<group>"; };
@@ -140,6 +216,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FC6E94F2B61B8E40019400F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC6E9502B61B8E40019400F /* libuvwasi.a in Frameworks */,
+				1FC6E9512B61B8E40019400F /* libzlib.a in Frameworks */,
+				1FC6E9522B61B8E40019400F /* libopenssl.a in Frameworks */,
+				1FC6E9532B61B8E40019400F /* libv8_base_without_compiler.a in Frameworks */,
+				1FC6E9542B61B8E40019400F /* libv8_libbase.a in Frameworks */,
+				1FC6E9702B61B91B0019400F /* libbase64_sse41.a in Frameworks */,
+				1FC6E9552B61B8E40019400F /* libcares.a in Frameworks */,
+				1FC6E96D2B61B91B0019400F /* libbase64_avx2.a in Frameworks */,
+				1FC6E9562B61B8E40019400F /* libllhttp.a in Frameworks */,
+				1FC6E9572B61B8E40019400F /* libhistogram.a in Frameworks */,
+				1FC6E96F2B61B91B0019400F /* libbase64_avx.a in Frameworks */,
+				1FC6E9582B61B8E40019400F /* libada.a in Frameworks */,
+				1FC6E9592B61B8E40019400F /* libbrotli.a in Frameworks */,
+				1FC6E95A2B61B8E40019400F /* libnode.a in Frameworks */,
+				1FC6E96E2B61B91B0019400F /* libbase64_ssse3.a in Frameworks */,
+				1FC6E95B2B61B8E40019400F /* libuv.a in Frameworks */,
+				1FC6E95C2B61B8E40019400F /* libv8_snapshot.a in Frameworks */,
+				1FC6E95E2B61B8E40019400F /* libv8_libplatform.a in Frameworks */,
+				1FC6E9712B61B91B0019400F /* libbase64_sse42.a in Frameworks */,
+				1FC6E95F2B61B8E40019400F /* libnghttp3.a in Frameworks */,
+				1FC6E9602B61B8E40019400F /* libnghttp2.a in Frameworks */,
+				1FC6E9612B61B8E40019400F /* libv8_initializers.a in Frameworks */,
+				1FC6E9622B61B8E40019400F /* libbase64.a in Frameworks */,
+				1FC6E9632B61B8E40019400F /* libv8_zlib.a in Frameworks */,
+				1FC6E9652B61B8E40019400F /* libngtcp2.a in Frameworks */,
+				1FC6E9662B61B8E40019400F /* libsimdutf.a in Frameworks */,
+				1FC6E9672B61B8E40019400F /* libv8_compiler.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FCA33B32B61A038008D453C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FCA33D12B61A0A1008D453C /* libuvwasi.a in Frameworks */,
+				1FCA33C72B61A0A1008D453C /* libzlib.a in Frameworks */,
+				1FCA33D02B61A0A1008D453C /* libopenssl.a in Frameworks */,
+				1FCA33C82B61A0A1008D453C /* libv8_base_without_compiler.a in Frameworks */,
+				1FCA33D72B61A0A1008D453C /* libv8_libbase.a in Frameworks */,
+				1FCA33CB2B61A0A1008D453C /* libcares.a in Frameworks */,
+				1FCA33D32B61A0A1008D453C /* libllhttp.a in Frameworks */,
+				1FCA33D42B61A0A1008D453C /* libhistogram.a in Frameworks */,
+				1FCA33C32B61A0A1008D453C /* libada.a in Frameworks */,
+				1FCA33C42B61A0A1008D453C /* libbrotli.a in Frameworks */,
+				1FCA33CF2B61A0A1008D453C /* libnode.a in Frameworks */,
+				1FCA33C12B61A0A1008D453C /* libuv.a in Frameworks */,
+				1FCA33C92B61A0A1008D453C /* libv8_snapshot.a in Frameworks */,
+				1FCA33C22B61A0A1008D453C /* libzlib_inflate_chunk_simd.a in Frameworks */,
+				1FCA33CD2B61A0A1008D453C /* libv8_libplatform.a in Frameworks */,
+				1FCA33CE2B61A0A1008D453C /* libnghttp3.a in Frameworks */,
+				1FCA33D52B61A0A1008D453C /* libnghttp2.a in Frameworks */,
+				1FCA33D62B61A0A1008D453C /* libv8_initializers.a in Frameworks */,
+				1FCA33CA2B61A0A1008D453C /* libbase64.a in Frameworks */,
+				1FCA33C52B61A0A1008D453C /* libv8_zlib.a in Frameworks */,
+				1FCA33D22B61A0A1008D453C /* libbase64_neon64.a in Frameworks */,
+				1FCA33C62B61A0A1008D453C /* libngtcp2.a in Frameworks */,
+				1FCA33C02B61A0A1008D453C /* libsimdutf.a in Frameworks */,
+				1FCA33CC2B61A0A1008D453C /* libv8_compiler.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9A7619C1F7C63A8006AFE86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +330,8 @@
 			children = (
 				D9A761AE1F7C63A8006AFE86 /* NodeMobile.framework */,
 				1F0EBAB72B5B465500F27980 /* NodeMobile-x64.framework */,
+				1FCA33B62B61A038008D453C /* libNodeMobile.a */,
+				1FC6E96C2B61B8E40019400F /* libNodeMobile.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,6 +423,40 @@
 			productReference = 1F0EBAB72B5B465500F27980 /* NodeMobile-x64.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1FC6E94C2B61B8E40019400F /* NodeMobileLib-x64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FC6E9692B61B8E40019400F /* Build configuration list for PBXNativeTarget "NodeMobileLib-x64" */;
+			buildPhases = (
+				1FC6E94D2B61B8E40019400F /* Sources */,
+				1FC6E94F2B61B8E40019400F /* Frameworks */,
+				1FC6E9682B61B8E40019400F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NodeMobileLib-x64";
+			productName = NodeMobileLib;
+			productReference = 1FC6E96C2B61B8E40019400F /* libNodeMobile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1FCA33B52B61A038008D453C /* NodeMobileLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FCA33BE2B61A038008D453C /* Build configuration list for PBXNativeTarget "NodeMobileLib" */;
+			buildPhases = (
+				1FCA33B22B61A038008D453C /* Sources */,
+				1FCA33B32B61A038008D453C /* Frameworks */,
+				1FCA33B42B61A038008D453C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NodeMobileLib;
+			productName = NodeMobileLib;
+			productReference = 1FCA33B62B61A038008D453C /* libNodeMobile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D9A7619A1F7C63A8006AFE86 /* NodeMobile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9A761AB1F7C63A8006AFE86 /* Build configuration list for PBXNativeTarget "NodeMobile" */;
@@ -307,6 +484,16 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Janea Systems";
 				TargetAttributes = {
+					1F0EBA8F2B5B465500F27980 = {
+						ProvisioningStyle = Automatic;
+					};
+					1FC6E94C2B61B8E40019400F = {
+						ProvisioningStyle = Automatic;
+					};
+					1FCA33B52B61A038008D453C = {
+						CreatedOnToolsVersion = 15.1;
+						ProvisioningStyle = Automatic;
+					};
 					D9A7619A1F7C63A8006AFE86 = {
 						ProvisioningStyle = Automatic;
 					};
@@ -327,6 +514,8 @@
 			targets = (
 				D9A7619A1F7C63A8006AFE86 /* NodeMobile */,
 				1F0EBA8F2B5B465500F27980 /* NodeMobile-x64 */,
+				1FCA33B52B61A038008D453C /* NodeMobileLib */,
+				1FC6E94C2B61B8E40019400F /* NodeMobileLib-x64 */,
 			);
 		};
 /* End PBXProject section */
@@ -354,6 +543,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0EBA912B5B465500F27980 /* NodeMobile.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FC6E94D2B61B8E40019400F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FC6E94E2B61B8E40019400F /* NodeMobile.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FCA33B22B61A038008D453C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FCA33BF2B61A07E008D453C /* NodeMobile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +646,126 @@
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Release;
+		};
+		1FC6E96A2B61B8E40019400F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bin",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = NodeMobile;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Debug;
+		};
+		1FC6E96B2B61B8E40019400F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bin",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = NodeMobile;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Release;
+		};
+		1FCA33BC2B61A038008D453C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bin",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = NodeMobile;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FCA33BD2B61A038008D453C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bin",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = NodeMobile;
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -640,6 +965,24 @@
 			buildConfigurations = (
 				1F0EBAB52B5B465500F27980 /* Debug */,
 				1F0EBAB62B5B465500F27980 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FC6E9692B61B8E40019400F /* Build configuration list for PBXNativeTarget "NodeMobileLib-x64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC6E96A2B61B8E40019400F /* Debug */,
+				1FC6E96B2B61B8E40019400F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FCA33BE2B61A038008D453C /* Build configuration list for PBXNativeTarget "NodeMobileLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FCA33BC2B61A038008D453C /* Debug */,
+				1FCA33BD2B61A038008D453C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

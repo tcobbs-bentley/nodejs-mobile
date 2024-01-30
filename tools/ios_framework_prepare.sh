@@ -2,6 +2,19 @@
 
 set -e
 
+if [ -z ${NODEJS_MOBILE_SHARED+x} ]; then
+  # This is the "framework" script, so shared library (framework) is enable
+  # by default. Set NODEJS_MOBILE_SHARED=0 before running to disable
+  # framework creation.
+  NODEJS_MOBILE_SHARED=1
+fi
+
+if [ -z ${NODEJS_MOBILE_STATIC+x} ]; then
+  # Set NODEJS_MOBILE_STATIC=1 before running to enabled static library
+  # creation.
+  NODEJS_MOBILE_STATIC=0
+fi
+
 ROOT=${PWD}
 
 SCRIPT_DIR="$(dirname "$BASH_SOURCE")"
@@ -16,41 +29,41 @@ TARGET_LIBRARY_PATH='tools/ios-framework/bin'
 NODELIB_PROJECT_PATH='tools/ios-framework'
 
 declare -a outputs_common=(
-    "libada.a"
-    "libbase64.a"
-    "libbrotli.a"
-    "libcares.a"
-    "libgtest_main.a"
-    "libgtest.a"
-    "libhistogram.a"
-    "libllhttp.a"
-    "libnghttp2.a"
-    "libnghttp3.a"
-    "libngtcp2.a"
-    "libnode.a"
-    "libopenssl.a"
-    "libsimdutf.a"
-    "libuv.a"
-    "libuvwasi.a"
-    "libv8_base_without_compiler.a"
-    "libv8_compiler.a"
-    "libv8_initializers.a"
-    "libv8_libbase.a"
-    "libv8_libplatform.a"
-    "libv8_snapshot.a"
-    "libv8_zlib.a"
-    "libzlib.a"
+  "libada.a"
+  "libbase64.a"
+  "libbrotli.a"
+  "libcares.a"
+  "libgtest_main.a"
+  "libgtest.a"
+  "libhistogram.a"
+  "libllhttp.a"
+  "libnghttp2.a"
+  "libnghttp3.a"
+  "libngtcp2.a"
+  "libnode.a"
+  "libopenssl.a"
+  "libsimdutf.a"
+  "libuv.a"
+  "libuvwasi.a"
+  "libv8_base_without_compiler.a"
+  "libv8_compiler.a"
+  "libv8_initializers.a"
+  "libv8_libbase.a"
+  "libv8_libplatform.a"
+  "libv8_snapshot.a"
+  "libv8_zlib.a"
+  "libzlib.a"
 )
 declare -a outputs_x64_only=(
-    "libbase64_avx.a"
-    "libbase64_avx2.a"
-    "libbase64_sse41.a"
-    "libbase64_sse42.a"
-    "libbase64_ssse3.a"
+  "libbase64_avx.a"
+  "libbase64_avx2.a"
+  "libbase64_sse41.a"
+  "libbase64_sse42.a"
+  "libbase64_ssse3.a"
 )
 declare -a outputs_arm64_only=(
-    "libbase64_neon64.a"
-    "libzlib_inflate_chunk_simd.a"
+  "libbase64_neon64.a"
+  "libzlib_inflate_chunk_simd.a"
 )
 
 declare -a outputs_x64=("${outputs_common[@]}" "${outputs_x64_only[@]}")
@@ -75,7 +88,7 @@ make -j$(getconf _NPROCESSORS_ONLN)
 # Move compilation outputs
 mkdir -p $TARGET_LIBRARY_PATH/arm64-device
 for output_file in "${outputs_arm64[@]}"; do
-    cp $LIBRARY_PATH/$output_file $TARGET_LIBRARY_PATH/arm64-device/
+  cp $LIBRARY_PATH/$output_file $TARGET_LIBRARY_PATH/arm64-device/
 done
 
 # Compile Node.js for iOS arm64 simulator
@@ -98,7 +111,7 @@ make -j$(getconf _NPROCESSORS_ONLN)
 # Move compilation outputs
 mkdir -p $TARGET_LIBRARY_PATH/arm64-simulator
 for output_file in "${outputs_arm64[@]}"; do
-    cp $LIBRARY_PATH/$output_file $TARGET_LIBRARY_PATH/arm64-simulator/
+  cp $LIBRARY_PATH/$output_file $TARGET_LIBRARY_PATH/arm64-simulator/
 done
 
 # Compile Node.js for iOS simulators on x64 Macs
@@ -149,44 +162,101 @@ cd out_ios
 FRAMEWORK_TARGET_DIR=${PWD}
 cd ../
 
-# Compile the Framework Xcode project for arm64 device
+# Compile the Xcode project for arm64 device
 for output_file in "${outputs_arm64[@]}"; do
   rm -f $TARGET_LIBRARY_PATH/$output_file
-  mv $TARGET_LIBRARY_PATH/arm64-device/$output_file $TARGET_LIBRARY_PATH/$output_file
+  cp $TARGET_LIBRARY_PATH/arm64-device/$output_file $TARGET_LIBRARY_PATH/$output_file
 done
-xcodebuild build \
-  -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
-  -target "NodeMobile" \
-  -configuration Release \
-  -arch arm64 \
-  -sdk "iphoneos" \
-  SYMROOT=$FRAMEWORK_TARGET_DIR/iphoneos-arm64
 
-# Compile the Framework Xcode project for arm64 simulator
+if [ "$NODEJS_MOBILE_SHARED" = "1" ]; then
+  # Create the framework.
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobile" \
+    -configuration Release \
+    -arch arm64 \
+    -sdk "iphoneos" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/iphoneos-arm64
+fi
+if [ "$NODEJS_MOBILE_STATIC" = "1" ]; then
+  # Create the static library
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobileLib" \
+    -configuration Release \
+    -arch arm64 \
+    -sdk "iphoneos" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/lib-iphoneos-arm64
+fi
+
+# Clean up
 for output_file in "${outputs_arm64[@]}"; do
   rm -f $TARGET_LIBRARY_PATH/$output_file
-  mv $TARGET_LIBRARY_PATH/arm64-simulator/$output_file $TARGET_LIBRARY_PATH/$output_file
 done
-xcodebuild build \
-  -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
-  -target "NodeMobile" \
-  -configuration Release \
-  -arch arm64 \
-  -sdk "iphonesimulator" \
-  SYMROOT=$FRAMEWORK_TARGET_DIR/iphonesimulator-arm64
+
+# Compile the Xcode project for arm64 simulator
+for output_file in "${outputs_arm64[@]}"; do
+  rm -f $TARGET_LIBRARY_PATH/$output_file
+  cp $TARGET_LIBRARY_PATH/arm64-simulator/$output_file $TARGET_LIBRARY_PATH/$output_file
+done
+
+if [ "$NODEJS_MOBILE_SHARED" = "1" ]; then
+  # Create the framework.
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobile" \
+    -configuration Release \
+    -arch arm64 \
+    -sdk "iphonesimulator" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/iphonesimulator-arm64
+fi
+if [ "$NODEJS_MOBILE_STATIC" = "1" ]; then
+  # Create the static library.
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobileLib" \
+    -configuration Release \
+    -arch arm64 \
+    -sdk "iphonesimulator" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/lib-iphonesimulator-arm64
+fi
+
+# Clean up
+for output_file in "${outputs_arm64[@]}"; do
+  rm -f $TARGET_LIBRARY_PATH/$output_file
+done
 
 # Compile the Framework Xcode project for iOS simulators on x64 Macs
 for output_file in "${outputs_x64[@]}"; do
   rm -f $TARGET_LIBRARY_PATH/$output_file
-  mv $TARGET_LIBRARY_PATH/x64-simulator/$output_file $TARGET_LIBRARY_PATH/$output_file
+  cp $TARGET_LIBRARY_PATH/x64-simulator/$output_file $TARGET_LIBRARY_PATH/$output_file
 done
-xcodebuild build \
-  -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
-  -target "NodeMobile-x64" \
-  -configuration Release \
-  -arch x86_64 \
-  -sdk "iphonesimulator" \
-  SYMROOT=$FRAMEWORK_TARGET_DIR/iphonesimulator-x64
+
+if [ "$NODEJS_MOBILE_SHARED" = "1" ]; then
+  # Create the framework.
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobile-x64" \
+    -configuration Release \
+    -arch x86_64 \
+    -sdk "iphonesimulator" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/iphonesimulator-x64
+fi
+if [ "$NODEJS_MOBILE_STATIC" = "1" ]; then
+  # Create the static library.
+  xcodebuild build \
+    -project $NODELIB_PROJECT_PATH/NodeMobile.xcodeproj \
+    -target "NodeMobileLib-x64" \
+    -configuration Release \
+    -arch x86_64 \
+    -sdk "iphonesimulator" \
+    SYMROOT=$FRAMEWORK_TARGET_DIR/lib-iphonesimulator-x64
+fi
+
+# Clean up
+for output_file in "${outputs_x64[@]}"; do
+  rm -f $TARGET_LIBRARY_PATH/$output_file
+done
 
 # Join both simulator outputs into one
 mkdir -p $FRAMEWORK_TARGET_DIR/iphonesimulator-universal
@@ -205,7 +275,12 @@ xcodebuild -create-xcframework \
   -framework $FRAMEWORK_TARGET_DIR/iphonesimulator-universal/NodeMobile.framework \
   -output $FRAMEWORK_TARGET_DIR/NodeMobile.xcframework
 
-echo "Frameworks built to $FRAMEWORK_TARGET_DIR"
+if [ "$NODEJS_MOBILE_SHARED" = "1" ]; then
+  echo "Frameworks built to $FRAMEWORK_TARGET_DIR"
+fi
+if [ "$NODEJS_MOBILE_STATIC" = "1" ]; then
+  echo "Static libraries built to $FRAMEWORK_TARGET_DIR"
+fi
 
 source $SCRIPT_DIR/copy_libnode_headers.sh ios
 
