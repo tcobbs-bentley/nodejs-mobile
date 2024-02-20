@@ -77,6 +77,11 @@ GYP_DEFINES += " ANDROID_NDK_ROOT=" + android_ndk_path
 GYP_DEFINES += " ANDROID_NDK_SYSROOT=" + toolchain_path + "/sysroot"
 os.environ['GYP_DEFINES'] = GYP_DEFINES
 
+if os.environ.get('NODE_JS_MOBILE_STATIC', '0') == '1':
+    lib_type = "--enable-static"
+else:
+    lib_type = "--shared"
+
 if os.path.exists("./configure"):
-    # nodejs-mobile patch: added --with-intl=none and --shared
-    os.system("./configure --dest-cpu=" + DEST_CPU + " --dest-os=android --openssl-no-asm --with-intl=none --cross-compiling --shared")
+    # nodejs-mobile patch: added --with-intl=none and lib_type
+    os.system("./configure --dest-cpu=" + DEST_CPU + " --dest-os=android --openssl-no-asm --with-intl=none --cross-compiling " + lib_type)

@@ -22,6 +22,32 @@ ANDROID_NDK_PATH=${PWD}
 cd "$SCRIPT_DIR"
 cd ../
 
+# Use the ar from the Android NDK instead of from the system.
+PREBUILT="${ANDROID_NDK_PATH}/toolchains/llvm/prebuilt"
+OS="$(uname | tr '[:upper:]' '[:lower:]')"
+ARCH="$(arch)"
+PLATFORM="${OS}-${ARCH}"
+if [ ! -d "${PREBUILT}/${PLATFORM}" ]; then
+  PLATFORM="${OS}-x86_64"
+fi
+if [ ! -d "${PREBUILT}/${PLATFORM}" ]; then
+  echo "Could not find Android NDK tool chain for current platform."
+  exit 1
+fi
+AR="${PREBUILT}/${PLATFORM}/bin/llvm-ar"
+
+# Create standalone static library.
+BUILD_LIB_NODE_MOBILE() {
+  FILE_LIST="${1}/libNodeMobile.a.ar-file-list"
+  LIB_NODE_MOBILE="out_android/$TARGET_ARCH_FOLDER/libNodeMobile.a"
+  rm -f "${FILE_LIST}"
+  # Find all the .o files in out/Release/obj.target and package them into one single
+  # static library.
+  find "${1}" -name \*.o > "${FILE_LIST}"
+  rm -f "${LIB_NODE_MOBILE}"
+  "${AR}" crs "${LIB_NODE_MOBILE}" "@${FILE_LIST}"
+}
+
 BUILD_ARCH() {
   # Clean previous compilation
   make clean
@@ -41,14 +67,29 @@ BUILD_ARCH() {
     TARGET_ARCH_FOLDER="arm64-v8a"
   fi
   mkdir -p "out_android/$TARGET_ARCH_FOLDER/"
-  OUTPUT1="out/Release/lib.target/libnode.so"
-  OUTPUT2="out/Release/obj.target/libnode.so"
-  if [ -f "$OUTPUT1" ]; then
-    cp "$OUTPUT1" "out_android/$TARGET_ARCH_FOLDER/libnode.so"
-  elif [ -f "$OUTPUT2" ]; then
-    cp "$OUTPUT2" "out_android/$TARGET_ARCH_FOLDER/libnode.so"
+  if [ "${NODE_JS_MOBILE_STATIC}" = "1" ]; then
+    LIBRARY_NAME=libnode.a
   else
-    echo "Could not find libnode.so file after compilation"
+    LIBRARY_NAME=libnode.so
+  fi
+  OUTPUT_DIR1="out/Release/lib.target"
+  OUTPUT_DIR2="out/Release/obj.target"
+  OUTPUT1="${OUTPUT_DIR1}/${LIBRARY_NAME}"
+  OUTPUT2="${OUTPUT_DIR2}/${LIBRARY_NAME}"
+  if [ -f "$OUTPUT1" ]; then
+    if [ "${NODE_JS_MOBILE_STATIC}" = "1" ]; then
+      BUILD_LIB_NODE_MOBILE "$OUTPUT_DIR1"
+    else
+      cp "$OUTPUT1" "out_android/$TARGET_ARCH_FOLDER/${LIBRARY_NAME}"
+    fi
+  elif [ -f "$OUTPUT2" ]; then
+    if [ "${NODE_JS_MOBILE_STATIC}" = "1" ]; then
+      BUILD_LIB_NODE_MOBILE "$OUTPUT_DIR2"
+    else
+      cp "$OUTPUT2" "out_android/$TARGET_ARCH_FOLDER/${LIBRARY_NAME}"
+    fi
+  else
+    echo "Could not find ${LIBRARY_NAME} file after compilation"
     exit 1
   fi
 }
